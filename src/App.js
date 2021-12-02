@@ -1,17 +1,21 @@
-
+import React, { useState } from 'react';
 import './App.css';
 import { Header } from './components/Header';
-import { CartItems } from './components/CartItems';
+import { CartItems } from './components/CartItems'
 import { CartTotal } from './components/CartTotal'
+import data from './Data'
+
 
 function App() {
+  const [cartItems, setCartItems] = useState(data);
+    // console.log(cartItems);
   
   return (
     <div className="App">
       <Header title={'Amazon Cart'} />
       <div className='App-main'>
-        <CartItems />
-        <CartTotal />
+        <CartItems items={cartItems} />
+
       </div>
 
     </div>
