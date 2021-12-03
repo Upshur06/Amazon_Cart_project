@@ -12,6 +12,8 @@
     display: flex;
     justify-content: center;
     align-items: center;  
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 
 .CartItem-image > img {

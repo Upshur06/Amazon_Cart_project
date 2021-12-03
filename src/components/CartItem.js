@@ -1,22 +1,24 @@
 import React from 'react'
 import '../css/CartItem.css'
 
-export const CartItem = () => {
+export const CartItem = ({ item }) => {
+    // console.log('Item', item)
+    // image, title, stock, price, quantity 
     return (
         <div className='CartItem'>
             <div className='CartItem-image'>
-                <img src='https://www.apple.com/newsroom/images/product/mac/standard/Apple_16-inch-MacBook-Pro_111319_big.jpg.large.jpg' alt='...' />
+                <img src={process.env.PUBLIC_URL + "/items/" + item.image} alt='...' />
             </div>
             <div className='CartItem-info'>
                 <div className='info-title'>
-                    <h2>Mac Book Pro</h2>
+                    <h2>{item.title}</h2>
                 </div>
                 <div className='info-stock'>
-                    In Stock
+                {item.stock}
                 </div>
                 <div className='item-actions'>
                     <div className='item-quantity'>
-                        <select>
+                        <select value={item.quantity}>
                             <option value="1">Qty:1</option>
                             <option value="2">Qty:2</option>
                             <option value="3">Qty:3</option>
@@ -27,7 +29,7 @@ export const CartItem = () => {
                     <div className='item-delete'>Delete</div>
                 </div>
             </div>
-            <div className='CartItem-price'>$1,780</div>
+            <div className='CartItem-price'>${item.price}</div>
         </div>
     )
 }
