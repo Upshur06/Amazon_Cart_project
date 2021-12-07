@@ -1,7 +1,6 @@
 import React from 'react'
 import '../css/CartItems.css'
 import { CartItem } from './CartItem'
-import uuid from 'uuid-random';
 
 export const CartItems = ({ items }) => {
   // console.log('Inside CartItems Component', items)

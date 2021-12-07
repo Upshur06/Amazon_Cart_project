@@ -1,13 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../css/CartTotal.css'
 
-export const CartTotal = () => {
+export const CartTotal = ({ price }) => {
+    
+    // const [total, setTotal] = useState(0);
+
+    const getTotalPrice = () => {
+        let total = 0;
+        price.map((el)=>{
+            total+=(el.price*el.quantity)
+        })
+        return total.toFixed(2)
+    }
+
     return (
         <div className='CartTotal'>
             <h3>
-                Subtotal(5 items):
+                Subtotal({price.length} items):
                 <span className='CarTotal-price'>
-                    $2,172.38
+                    ${ getTotalPrice() }
                 </span>
             </h3>
             <button>
