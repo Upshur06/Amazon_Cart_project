@@ -11,7 +11,15 @@ export const CartItems = ({ items, setCartItems }) => {
           newItems[index].quantity = e.target.value;
           setCartItems(newItems);
       }
- 
+
+      const deleteItem = (indexToDelete) => {
+          const newItem = items.filter((value, index)=>{
+            return index !== indexToDelete
+          })
+          console.log(newItem)
+        setCartItems(newItem)
+      }
+
     return (
         <div className='CartItems'>
           <h1>Shopping Cart</h1>
@@ -20,7 +28,9 @@ export const CartItems = ({ items, setCartItems }) => {
             items && 
             items.map((item, index) =>
             <div className='CartItems-items'>
-              <CartItem key={index} item={item} index={index} changeItemQuanity={ changeItemQuanity } />
+
+              
+              <CartItem key={index} item={item} index={index} changeItemQuanity={ changeItemQuanity } deleteItem={deleteItem} />
             </div>
             )
           }

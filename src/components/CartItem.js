@@ -1,9 +1,11 @@
 import React from 'react'
 import '../css/CartItem.css'
 
-export const CartItem = ({ index, item, changeItemQuanity }) => {
+export const CartItem = ({ index, item, changeItemQuanity, deleteItem }) => {
     // console.log('Item', item)
     // image, title, stock, price, quantity 
+
+
     return (
         <div className='CartItem'>
             <div className='CartItem-image'>
@@ -32,7 +34,7 @@ export const CartItem = ({ index, item, changeItemQuanity }) => {
                         </select>
                     </div>
                     <div className='div-item-divider'>|</div>
-                    <div className='item-delete'>Delete</div>
+                    <div className='item-delete' onClick={deleteItem.bind(this, index)} >Delete</div>
                 </div>
             </div>
             <div className='CartItem-price'>${item.price}</div>
